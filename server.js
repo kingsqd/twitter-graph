@@ -1,7 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
-var Twitter = requir("twitter");
+var Twitter = require("twitter");
 var ObjectID = mondgodb.ObjectID;
 
 
