@@ -16,7 +16,6 @@ var twitterClient = new Twitter({
 });
 
 var db;
-app.listen(process.env.PORT , '0.0.0.0');
 
 mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test", function (err, client) {
     if(err) {
@@ -29,11 +28,11 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
     console.log("Database connection ready");
 
     // Initialize app
-    //var server = app.listen(process.env.PORT , '0.0.0.0', function(){
-      //  var port = server.address().port;
-        //console.log("App now running on port", port);
-   // });
-   //app.listen(process.env.PORT , '0.0.0.0');
+    var server = app.listen(process.env.PORT , '0.0.0.0', function(){
+        var port = server.address().port;
+        console.log("App now running on port", port);
+    });
+
 
 });
 
