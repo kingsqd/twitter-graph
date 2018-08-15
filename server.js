@@ -45,7 +45,7 @@ function handleError(res, reason, message, code) {
 app.get("/api/tweets", function(req, res) {
     twitterClient.stream('statuses/filter', {track: 'nba'}, function(stream) {
         stream.on('data', function(event) {
-            res.status(200).json(event.text);
+            res.status(200).json(event);
         });
 
         stream.on('error', function(error) {
