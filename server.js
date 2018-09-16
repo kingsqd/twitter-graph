@@ -8,6 +8,8 @@ var Twitter = require("twitter");
 var app = express();
 app.use(bodyParser.json());
 
+var billboard = require("billboard-top-100").getChart;
+
 var twitterClient = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -52,6 +54,13 @@ app.get("/api/tweets", function(req, res) {
             handleError(res, error.message, "failed to get tweets");
         })
     })
+});
+
+app.get("/api/top-100", function(req, res) {
+    billboard('hot-100', function(err, songs) {
+        if (err) console.log(err);
+        console.log(songs); //prints array of top 100 songs
+    });
 });
 
 
