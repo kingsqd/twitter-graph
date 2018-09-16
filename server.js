@@ -59,7 +59,8 @@ app.get("/api/tweets", function(req, res) {
 app.get("/api/top-100", function(req, res) {
     billboard('hot-100', function(err, songs) {
         if (err) console.log(err);
-        console.log(songs); //prints array of top 100 songs
+        console.log(songs);
+        res.status(200).json(songs); //prints array of top 100 songs
     });
 });
 
