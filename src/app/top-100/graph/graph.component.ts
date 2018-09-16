@@ -23,6 +23,7 @@ export class GraphComponent implements OnInit {
           this.songs = songs.map((song) => {
             return song;
           })
+          this.firstSong = songs[0];
           this.populateMap(songs);
           
         });
