@@ -8,6 +8,9 @@ var Twitter = require("twitter");
 var app = express();
 app.use(bodyParser.json());
 
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
 var billboard = require("billboard-top-100").getChart;
 
 var twitterClient = new Twitter({
